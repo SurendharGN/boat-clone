@@ -34,7 +34,7 @@ const Home = ({products,bannerData}) => {
             {products.map((product)=>{return <Product key={product._id} product={product}/>})}
         </div>
 
-        <FooterBanner />
+        <FooterBanner footerBanner={bannerData && bannerData[0]}/>
     </>
   )
 };

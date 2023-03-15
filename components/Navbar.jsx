@@ -1,9 +1,21 @@
 import React from 'react'
-
-const Navber = () => {
+import Link from "next/link"
+import {AiOutlineShopping} from "react-icons/ai"
+const Navbar = () => {
   return (
-    <div>Navber</div>
+    <div>
+        <p>
+            <Link href="/">
+                Boat Clone
+            </Link>
+        </p>
+
+        <button onClick="">
+            <AiOutlineShopping/>
+            <span>1</span>
+        </button>
+    </div>
   )
 }
 
-export default Navber
+export default Navbar
