@@ -1,8 +1,12 @@
 import React from 'react'
+import Link from 'next/link'
+import {urlFor} from '../pages/index'
 
-const Product = () => {
+const Product = ({product}) => {
   return (
-    <div>Product</div>
+    <div>
+        
+    </div>
   )
 }
 
