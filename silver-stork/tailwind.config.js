@@ -4,7 +4,15 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+        height:{
+            '100':'32rem'
+        },
+        width:{
+            'eigthy':'80%'
+        }
+        
+    },
   },
   plugins: [],
 }

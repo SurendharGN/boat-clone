@@ -1,9 +1,11 @@
 import React from 'react';
-import {FooterBanner} from "../components"
+import {FooterBanner, TestSVG} from "../components"
 import {HeroBanner}  from '../components';
 import {Product} from '../components'
 import {createClient} from "next-sanity";
+
 import imageUrlBuilder from '@sanity/image-url'
+import Image from 'next/image';
 
 
 export const client=createClient({
@@ -22,16 +24,17 @@ export const urlFor =(source)=>builder.image(source)
 const Home = ({products,bannerData}) => {
   return (
     <>
-        <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
-        {console.log(bannerData)}
-
-        <div>
-            <h2>Best selling products</h2>
+        
+            <HeroBanner heroBanner={bannerData.length && bannerData[0] }/>
+        
+        <div className="text-center text-zinc-800">
+            <h2 className="text-[2rem] font-bold">Best Selling Products</h2>
             <p>Speakers of many variations</p>
         </div>
 
-        <div>
-            {products.map((product)=>{return <Product key={product._id} product={product}/>})}
+        <div className="flex justify-center flex-wrap ">
+            {products?.map((product)=>{return <Product key={product._id} product={product}/>})}
+            
         </div>
 
         <FooterBanner footerBanner={bannerData && bannerData[0]}/>

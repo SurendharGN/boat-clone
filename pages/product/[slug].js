@@ -3,13 +3,15 @@ import {client,urlFor} from "../index"
 import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import {Product} from "../../components";
 import { useState } from 'react';
+import {useStateContext} from '../../context/StateContext'
 
-
-const productDetails = ({product,products}) => {
+const ProductDetails = ({product,products}) => {
 
     const {image,name,details,price}=product;
 
     const [index,setIndex]= useState(0);
+
+    const {increaseQuantity,decreaseQuantity,quantity,addToCart}=useStateContext()
 
     return (
         <div>
@@ -25,7 +27,7 @@ const productDetails = ({product,products}) => {
                             <><img 
                             src={urlFor(item)} 
                             onMouseEnter={()=>setIndex(i)} 
-                            key="name"/></>
+                            key="name" alt='image'/></>
                             )})}
                     </div>
 
@@ -49,15 +51,15 @@ const productDetails = ({product,products}) => {
                         <div>
                             <h3>Quantity:</h3>
                             <p>
-                                <span><AiOutlineMinus/></span>
-                                <span>0</span>
-                                <span><AiOutlinePlus/>
+                                <span onClick={decreaseQuantity}><AiOutlineMinus/></span>
+                                <span>{quantity}</span>
+                                <span onClick={increaseQuantity}><AiOutlinePlus/>
                                 </span>
                             </p>
                         </div>
 
                         <div>
-                            <button>
+                            <button onClick={()=>addToCart(product,quantity)}>
                             Add to cart
                             </button>
                             <button>
@@ -114,4 +116,4 @@ export const getStaticProps=async ({params:{slug}})=>{
     }
 }
 
-export default productDetails
+export default ProductDetails
