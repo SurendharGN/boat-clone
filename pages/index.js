@@ -23,9 +23,11 @@ export const urlFor =(source)=>builder.image(source)
 
 const Home = ({products,bannerData}) => {
   return (
-    <>
+    <div className="">
+        <p className="m-6 text-center">*Note: this is a clone application of a youtube tutorial, we do not intend to sell any of the products. </p>
+            
+        <HeroBanner heroBanner={bannerData.length && bannerData[0] }/>
         
-            <HeroBanner heroBanner={bannerData.length && bannerData[0] }/>
         
         <div className="text-center text-zinc-800">
             <h2 className="text-[2rem] font-bold">Best Selling Products</h2>
@@ -38,7 +40,7 @@ const Home = ({products,bannerData}) => {
         </div>
 
         <FooterBanner footerBanner={bannerData && bannerData[0]}/>
-    </>
+    </div>
   )
 };
 
