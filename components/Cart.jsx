@@ -17,11 +17,11 @@ const Cart = () => {
     const cartRef=useRef()
 
     return (
-        <div ref={cartRef}>
-            <div>
+        <div ref={cartRef} className='flex flex-row w-screen justify-center items-center translate-y-20 border'>
+            <div >
                 <button onClick={()=>setShowCart(false)}>
-                    <AiOutlineLeft />
-                    <span>Your cart</span>
+                    
+                    <span className='text-5xl'>Your cart</span>
                     <span>({totalQuantities} items)</span>
                 </button>
 
@@ -40,7 +40,7 @@ const Cart = () => {
                 <div>
                     {cartItems.length >= 1 && cartItems.map((item,index)=>(
                         <div key={index}>
-                            <img src={urlFor(item.image[0])}></img>
+                            <img src={urlFor(item.image[0])} className='h-36'></img>
                             <div>
                                 <div>
                                     <h5>{item.name}</h5>
@@ -49,15 +49,15 @@ const Cart = () => {
 
                                 <div>
                                     
-                                    <p>
-                                        <span onClick={()=>toggleCartItemQuantity(item._id,"decrement")}><AiOutlineMinus/></span>
-                                        <span>{item.quantity}</span>
-                                        <span onClick={()=>toggleCartItemQuantity(item._id,"increment")}><AiOutlinePlus/>
+                                    <p className='flex'>
+                                        <span className="w-10 h-10 border flex justify-center items-center" onClick={()=>toggleCartItemQuantity(item._id,"decrement")}><AiOutlineMinus/></span>
+                                        <span className="w-10 h-10 border flex justify-center align-middle">{item.quantity}</span>
+                                        <span className="w-10 h-10 border flex justify-center align-middle items-center" onClick={()=>toggleCartItemQuantity(item._id,"increment")}><AiOutlinePlus/>
                                         </span>
                                     </p>
                                 </div>
 
-                                <button onClick={removeItem(item)}><TiDeleteOutline/></button>
+                                
                                 <div></div>
                             </div>
                         </div>
