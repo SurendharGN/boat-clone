@@ -14,8 +14,8 @@ const Navbar = () => {
         </p>
 
         <button onClick={()=>setShowCart(true)}>
-            <AiOutlineShopping className="relative right-4 top-2 w-6 h-6"/>
-            <span className="absolute top-1 right-0 w-6 h-6 bg-sky-400 rounded-full flex justify-center align-middle">{totalQuantities}</span>
+            
+            <span className="absolute top-1 right-0 w-6 h-6 bg-gradient-to-r from-[#a8ff78]   to-[#78ffd6] rounded-full flex justify-center align-middle">{totalQuantities}</span>
         </button>
         {showCart && <Cart/>}
     </div>

@@ -95,8 +95,10 @@ export const StateContext=({children})=>{
     const decreaseQuantity=()=>{
         setQuantity((previousQuantity)=>
         {
-            if(previousQuantity-1<1) return 1;
-            return previousQuantity-1})
+            if(previousQuantity-1<1)return 1;
+            return previousQuantity-1
+            
+            })
     }
     return (
         <Context.Provider 

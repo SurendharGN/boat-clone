@@ -3,9 +3,10 @@ import {FooterBanner, TestSVG} from "../components"
 import {HeroBanner}  from '../components';
 import {Product} from '../components'
 import {createClient} from "next-sanity";
-
+import Link from 'next/link';
 import imageUrlBuilder from '@sanity/image-url'
 import Image from 'next/image';
+import {useState,useEffect} from 'react'
 
 
 export const client=createClient({
@@ -21,17 +22,31 @@ export const urlFor =(source)=>builder.image(source)
 
 
 
+
+
 const Home = ({products,bannerData}) => {
+
+    const[url,setUrl]=useState('');
+    useEffect(()=>
+        setUrl('https://youtu.be/4mOkFXyxfsU'),[]
+    )
   return (
     <div className="">
+        
         <p className="m-6 text-center">*Note: this is a clone application of a youtube tutorial, we do not intend to sell any of the products. </p>
+
+        <div className="flex justify-center">
+            <Link target="_blank" href={url}className="text-center font-medium text-lg mb-5 underline">Tutorial Link</Link>
+        </div>
+        
             
         <HeroBanner heroBanner={bannerData.length && bannerData[0] }/>
         
         
-        <div className="text-center text-zinc-800">
-            <h2 className="text-[2rem] font-bold">Best Selling Products</h2>
-            <p>Speakers of many variations</p>
+        <div className="text-center text-zinc-700 mt-16">
+            <h2 className="text-[3rem] font-bold ">Best Selling Products</h2>
+            <div className="mt-5 h-0.5 bg-gray-300 flex w-80 m-auto justify-center align-middle"></div>
+            
         </div>
 
         <div className="flex justify-center flex-wrap ">
